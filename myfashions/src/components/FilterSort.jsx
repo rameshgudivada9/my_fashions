@@ -1,11 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import React,{ useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import {
-  getProductData,
   getProductDataFilterSort,
 } from "../redux/ProductReducer/ProductAction";
-// import "./FilterSort.css";
+import "./filterSort.css";
 export const FilterSort = () => {
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -23,16 +22,7 @@ export const FilterSort = () => {
   }, [query]);
   return (
     <div className="filter-sort">
-      <select
-        onChange={(e) => {
-          searchParams.set("category", e.target.value);
-          setSearchParams(searchParams);
-          setQuery({ ...query, category: searchParams.get("category") });
-        }}
-      >
-        <option value="men">MEN</option>
-        <option value="women">WOMEN</option>
-      </select>
+ 
       <select
         onChange={(e) => {
           searchParams.set("brandName", e.target.value);
@@ -40,8 +30,19 @@ export const FilterSort = () => {
           setQuery({ ...query, brandName: searchParams.get("brandName") });
         }}
       >
+        <option value="">Filter By Brands</option>
         <option value="puma">PUMA</option>
         <option value="reebok">REEBOK</option>
+      </select>
+      <select
+        onChange={(e) => {
+          searchParams.set("category", e.target.value);
+          setSearchParams(searchParams);
+          setQuery({ ...query, category: searchParams.get("category") });
+        }}
+      ><option value="">Filter by Catagery</option>
+        <option value="men">MEN</option>
+        <option value="women">WOMEN</option>
       </select>
       <select
         onChange={(e) => {
@@ -50,6 +51,7 @@ export const FilterSort = () => {
           setQuery({ ...query, sort: searchParams.get("sort") });
         }}
       >
+        <option value="puma">Sorting by Price</option>
         <option value="asc">Low - High</option>
         <option value="des">High- Low</option>
       </select>
@@ -63,7 +65,7 @@ export const FilterSort = () => {
           setQuery({ ...query, page: searchParams.get("page") });
         }}
       >
-        Prve
+        Prev
       </button>
       <button
         onClick={() => {

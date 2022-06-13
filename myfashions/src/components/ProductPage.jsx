@@ -1,7 +1,7 @@
-// import "./ProductPage.css";
+import "./productPage.css";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addData, getProductData } from "../redux/ProductReducer/ProductAction";
+import {  getProductData } from "../redux/ProductReducer/ProductAction";
 import { ProductCard } from "./ProductCard";
 
 export const ProductPage = () => {
@@ -13,7 +13,7 @@ export const ProductPage = () => {
   console.log("productData:", productData);
 
   return (
-    <div className="product-page">
+    <div className="product-page-div">
       {productData.map((elem) => (
         <ProductCard props={elem} key={elem._id} />
       ))}

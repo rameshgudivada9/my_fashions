@@ -1,4 +1,4 @@
-// import "./ProductCard.css";
+import "./productCard.css";
 export const ProductCard = ({ props }) => {
   const {
     image_url,
@@ -9,29 +9,28 @@ export const ProductCard = ({ props }) => {
     category
   } = props;
   return (
+    <div className="main">
     <div className="product-card">
       <img src={image_url} alt="immg"/>
 
-      <div className="field">
-        <div className="title">Name:-</div>
-        <div>{name}</div>
+      <div className="field-div">
+        <div><h3>{name}</h3></div>
       </div>
-      <div className="field">
-        <div className="title">price:-</div>
-        <div>₹{price}</div>
+      <div className="field-div">
+        <div><h4>₹{price}</h4></div>
+     
+        <div className="strickedprice"><h4>₹{strikedoffprice}</h4></div>
       </div>
-      <div className="field">
-        <div className="title">strikedoffprice:-</div>
-        <div>₹{strikedoffprice}</div>
+      <div className="field-div">
+        <div> <h3>{brandName}</h3></div>
       </div>
-      <div className="field">
-        <div className="title">brandName:-</div>
-        <div> {brandName}</div>
+      <div className="field-div">
+        <div><h4>{category}</h4></div>
       </div>
-      <div className="field">
-        <div className="title">category:-</div>
-        <div>{category}</div>
+      <div>
+        <button>ADD TO CART</button>
       </div>
+    </div>
     </div>
   );
 };

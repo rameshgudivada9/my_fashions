@@ -8,7 +8,7 @@ export const addData = (val) => {
 
 export const getProductData = (val) => async (dispatch) => {
   axios
-    .get("http://localhost:6275/?page=1&perPage=20")
+    .get(" https://myfashionapi.herokuapp.com/?page=1&perPage=20")
     .then((res) => dispatch(addData(res.data)))
     .catch((error) => console.log(error));
 };
@@ -16,7 +16,7 @@ export const getProductDataFilterSort = (val) => async (dispatch) => {
   console.log(val);
   axios
     .get(
-      `http://localhost:6275/?${
+      ` https://myfashionapi.herokuapp.com/?${
         val.category ? `category=${val.category}` : ""
       }&${val.brandName ? `brandName=${val.brandName}` : ""}&${
         val.sort ? `sort=${val.sort}` : ""
