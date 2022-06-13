@@ -6,6 +6,9 @@ export const Navbar = () => {
   return (
     <div className='navbar'>
         <h2>MY FASHIONS</h2>
+        {/* <h2>MY FASHIONS</h2> */}
+
+
         <div className="nav-elements">
 
         </div>
